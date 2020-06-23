@@ -1,0 +1,82 @@
+{% extends 'forms_App/base.html' %}
+    {% block title %}
+        Sign up
+    {% endblock %}
+    {% block app_styles %}
+            body{
+        background-color:black;
+    }
+    .container{
+        margin-top:5rem;
+        color:white;
+        padding-top:0rem;
+        padding-bottom:0rem;
+<!--            margin:auto;-->
+        width:50%;
+<!--            border:2px solid white;-->
+        border-width: 3px;
+        border-style: solid;
+        border-image:
+        linear-gradient(
+          to bottom,
+          red,
+          rgba(0, 0, 0, 0)
+        ) 1 100%;
+    }
+    .container form{
+<!--            margin:auto;-->
+        width:50%;
+        padding: 0rem 4rem 4rem 4rem;
+    }
+    {% endblock %}
+    {% include 'forms_App/_navbar.html' %}
+    {% block sub_content %}
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            <h2><center>Sign up</center></h2>
+              <div class="form-group">
+                <label for="id_username">Username</label>
+            <!--    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">-->
+                  {{form.username}}
+              </div>
+            <div class="form-group">
+                <label for="id_email">Email</label>
+            <!--    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">-->
+                  {{form.email}}
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+            <div class="form-group">
+                <label for="id_phone">Phone</label>
+            <!--    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">-->
+                  {{form.phone}}
+              </div>
+              <div class="form-group">
+                <label for="id_password">Password</label>
+            <!--    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">-->
+                  {{form.password}}
+              </div>
+            <div class="form-group">
+                <label for="id_re_password">Re-Enter your Password</label>
+            <!--    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">-->
+                  {{form.re_password}}
+              </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    {% endblock %}
+
+
+
+
+
+<!--<div class="container">-->
+<!--&lt;!&ndash;        <p>"Hello"</p>&ndash;&gt;-->
+<!--        <div class="container">-->
+<!--        <form method="post">-->
+<!--            {% csrf_token %}-->
+<!--            {{ form.username }}-->
+<!--            <input type="submit" value="submit" class="btn btn btn-primary">-->
+<!--        </form></div>-->
+<!--    </div>-->
